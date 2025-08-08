@@ -6,7 +6,7 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: #fff;
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -15,12 +15,13 @@ body {
 }
 
 .container {
-    background: white;
+    background: #f7f7fa;
     padding: 40px;
     border-radius: 10px;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
     width: 100%;
     max-width: 400px;
+    color: #23272f;
 }
 
 .form-title {
@@ -159,3 +160,59 @@ body {
     display: none;
     z-index: 1000;
 }
+
+    .sliding-underline-message {
+        position: relative;
+        text-align: center;
+        font-size: 16px;
+        color: #764ba2;
+        margin: 30px 0 10px 0;
+        font-weight: 500;
+    }
+
+    .sliding-text-container {
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+        height: 28px;
+        margin-bottom: 8px;
+    }
+
+    .sliding-text {
+        display: inline-block;
+        white-space: nowrap;
+        font-size: 18px;
+        color: #764ba2;
+        animation: slide-text-loop 20s linear infinite;
+    }
+
+    @keyframes slide-text-loop {
+        0% {
+            transform: translateX(100%);
+        }
+        100% {
+            transform: translateX(-100%);
+        }
+    }
+
+    .sliding-underline-message .sliding-underline {
+        display: block;
+        position: absolute;
+        left: 50%;
+        bottom: -5px;
+        transform: translateX(-50%);
+        width: 0;
+        height: 3px;
+        background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+        border-radius: 2px;
+        animation: slide-underline 2s forwards;
+    }
+
+    @keyframes slide-underline {
+        from {
+            width: 0;
+        }
+        to {
+            width: 80%;
+        }
+    }
