@@ -8,6 +8,7 @@
 </head>
 <body>
     <div class="container">
+    <div style="text-align:center; font-size:40px; margin-bottom:10px;">🐵</div>
         <h2 class="form-title">Create Account</h2>
         <form id="signupForm">
             <div class="form-group">
@@ -31,14 +32,20 @@
 
             <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" id="password" name="password" required>
+                <div class="password-input-wrapper">
+                    <input type="password" id="password" name="password" required>
+                    <button type="button" class="toggle-password" id="togglePassword" tabindex="-1" aria-label="Show/Hide Password">🐵</button>
+                </div>
                 <div class="error-message" id="passwordError"></div>
                 <div class="password-strength" id="passwordStrength"></div>
             </div>
 
             <div class="form-group">
                 <label for="confirmPassword">Confirm Password</label>
-                <input type="password" id="confirmPassword" name="confirmPassword" required>
+                <div class="password-input-wrapper">
+                    <input type="password" id="confirmPassword" name="confirmPassword" required>
+                    <button type="button" class="toggle-password" id="toggleConfirmPassword" tabindex="-1" aria-label="Show/Hide Password">🐵</button>
+                </div>
                 <div class="error-message" id="confirmPasswordError"></div>
             </div>
 
@@ -64,7 +71,7 @@
             <div class="sliding-underline-message">
                 <div class="sliding-text-container">
                     <span class="sliding-text">
-                        Thank You Allah, I've now learn how to update the reprository withour deleting and putiing it again
+                        Thank You Allah, I've now learn how to update the repository without deleting and putting it again
                     </span>
                 </div>
                 <span class="sliding-underline"></span>

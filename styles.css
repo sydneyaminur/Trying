@@ -1,3 +1,31 @@
+.password-input-wrapper {
+    position: relative;
+    width: 100%;
+    display: block;
+}
+
+.password-input-wrapper input[type="password"],
+.password-input-wrapper input[type="text"] {
+    width: 100%;
+    padding-right: 38px;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+    outline: none;
+    transition: transform 0.2s;
+    padding: 0 4px;
+}
+.toggle-password:active {
+    transform: scale(1.2);
+}
 * {
     margin: 0;
     padding: 0;
@@ -22,6 +50,21 @@ body {
     width: 100%;
     max-width: 400px;
     color: #23272f;
+}
+
+.container h3 {
+    margin-top: 24px;
+    margin-bottom: 10px;
+}
+
+.container ul {
+    margin-bottom: 18px;
+    margin-left: 20px;
+}
+
+.container p {
+    margin-bottom: 18px;
+}
 }
 
 .form-title {

@@ -21,6 +21,32 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Add interactive effects
     addInteractiveEffects();
+
+    // Password show/hide toggle
+    const passwordInput = document.getElementById('password');
+    const confirmPasswordInput = document.getElementById('confirmPassword');
+    const togglePasswordBtn = document.getElementById('togglePassword');
+    const toggleConfirmPasswordBtn = document.getElementById('toggleConfirmPassword');
+
+    togglePasswordBtn.addEventListener('click', function() {
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            togglePasswordBtn.textContent = '🙈';
+        } else {
+            passwordInput.type = 'password';
+            togglePasswordBtn.textContent = '🐵';
+        }
+    });
+
+    toggleConfirmPasswordBtn.addEventListener('click', function() {
+        if (confirmPasswordInput.type === 'password') {
+            confirmPasswordInput.type = 'text';
+            toggleConfirmPasswordBtn.textContent = '🙈';
+        } else {
+            confirmPasswordInput.type = 'password';
+            toggleConfirmPasswordBtn.textContent = '🐵';
+        }
+    });
 });
 
 function validateFirstName() {
@@ -89,7 +115,15 @@ function validatePassword() {
     if (/[^A-Za-z0-9]/.test(value)) score++;
 
     if (score < 3) {
-        feedback = 'Weak password';
+        let suggestions = [];
+        if (!/[a-z]/.test(value)) suggestions.push('a lowercase letter');
+        if (!/[A-Z]/.test(value)) suggestions.push('an uppercase letter');
+        if (!/[0-9]/.test(value)) suggestions.push('a number');
+        if (!/[^A-Za-z0-9]/.test(value)) suggestions.push('a special character');
+        feedback = 'Weak password.';
+        if (suggestions.length > 0) {
+            feedback += ' Add ' + suggestions.join(', ') + '.';
+        }
         strength.className = 'password-strength strength-weak';
     } else if (score < 5) {
         feedback = 'Medium strength password';
